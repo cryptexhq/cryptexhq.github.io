@@ -2,16 +2,6 @@
 <html lang="fr">
 <head>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-98Q0C7FWRJ"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-98Q0C7FWRJ');
-    </script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -1903,18 +1893,19 @@ Mon approche repose sur l’écoute et la pédagogie : je prends le temps d’ex
             }
 
             loadGoogleAnalytics() {
-                // Example: Load Google Analytics
-                /*
+                // Charger le script Google Analytics
                 const script = document.createElement('script');
-                script.src = 'https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID';
+                script.async = true;
+                script.src = 'https://www.googletagmanager.com/gtag/js?id=G-98Q0C7FWRJ';
                 document.head.appendChild(script);
                 
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', 'GA_MEASUREMENT_ID');
-                */
-                console.log('Analytics cookies enabled');
+                // Initialiser Google Analytics
+                script.onload = () => {
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', 'G-98Q0C7FWRJ');
+                };
             }
 
             loadMarketingScripts() {
