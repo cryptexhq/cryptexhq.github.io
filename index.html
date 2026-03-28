@@ -321,6 +321,8 @@
 			}
 			
 			footer a:hover::before, footer a:focus::before { width: 100% }
+
+
 						
 			#home {
 				display: none;
@@ -920,6 +922,33 @@
 				transform: translateY(-3px);
 				box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 			}
+
+			.cgv {
+				position: relative;
+				color: black;
+				width: fit-content;
+				transition: color 0.3s ease;
+			}
+			
+			.cgv:hover {
+				color: var(--orange-hover);
+			}
+			
+			.cgv::before {
+				content: "";
+				position: absolute;
+				bottom: -5px;
+				left: 0;
+				width: 0%;
+				height: 3px;
+				background-color: var(--orange-hover);
+				transition: width 0.3s ease;
+			}
+
+			.cgv:hover::before {
+				width: 100%;
+			}
+
 
 			/* ========================================
 			   RESPONSIVE
@@ -1789,7 +1818,7 @@
 				</p>
 
 				<h2>8. Conditions générales de vente (CGV)</h2>
-				<p>cliquez ici pour consulter les <a target="_blank" href="./assets/CGV.pdf">CGV</a></p>
+				<a class="cgv" target="_blank" href="./assets/CGV.pdf">Cliquez ici pour consulter les CGV</a>
 			</section>
 			
 			<footer><p>© Cryptex | Tous droits réservés</p><a class="navLink" href="#legal">Mentions légales</a></footer>
