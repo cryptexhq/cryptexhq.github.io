@@ -11,16 +11,16 @@
 		<link rel="canonical" href="https://cryptexhq.github.io">
 
 		<!-- Base -->
-		<meta name="description" content="Cryptex : développement web, refonte de sites, sécurisation web et analyse de votre présence numérique en Belgique. Solutions professionnelles pour votre présence en ligne.">
+		<meta name="description" content="Cryptex : audit de sécurité web, pentest et développement sur mesure pour PME et indépendants belges. Je trouve vos failles avant les attaquants, rapport clair, sans jargon.">
 		<meta name="keywords" content="développement web, création site internet, refonte site web, sécurité web, pentest, OSINT, Belgique, Namur">
 		<meta name="author" content="Cryptex">
 		<meta name="robots" content="index, follow">
 		<meta name="theme-color" content="#2980B9">
-		<title>Cryptex</title>
+		<title>Cryptex, Audit de sécurité web & développement pour PME belges</title>
 
 		<!-- OG -->
 		<meta property="og:type" content="website">
-		<meta property="og:title" content="Cryptex - Votre présence en ligne, entre de bonnes mains">
+		<meta property="og:title" content="Cryptex, Audit sécurité web & développement pour PME belges">
 		<meta property="og:description" content="Développement web, refonte de sites, sécurisation et analyse de votre présence numérique. Solutions professionnelles adaptées à vos besoins.">
 		<meta property="og:url" content="https://cryptexhq.github.io">
 		<meta property="og:site_name" content="Cryptex">
@@ -31,7 +31,7 @@
 
 		<!-- Twitter Card -->
 		<meta name="twitter:card" content="summary_large_image">
-		<meta name="twitter:title" content="Cryptex - Votre présence en ligne, entre de bonnes mains">
+		<meta name="twitter:title" content="Cryptex, Audit sécurité web & développement pour PME belges">
 		<meta name="twitter:description" content="Développement web, refonte de sites, sécurisation et analyse de votre présence numérique. Solutions professionnelles adaptées à vos besoins.">
 		<meta name="twitter:image" content="https://cryptexhq.github.io/assets/og-image.png">
 		<meta name="twitter:site" content="@cryptexhq">
@@ -595,6 +595,8 @@
 			#legal h1 {text-align: center;}
 			
 			#home.active { display: flex; }
+			#about { display: none; flex-direction: column; align-items: center; justify-content: flex-start; padding: 3rem 2rem; min-height: calc(100vh - 80px); }
+			#about.active { display: flex; }
 			#services.active { display: block; }
 			#portfolio.active { display: block; }
 			#contact.active { display: block; }
@@ -949,74 +951,26 @@
 				width: 100%;
 			}
 
-
-			/* ========================================
-			   RESPONSIVE
-			   ======================================== */
-
-			@media (max-width: 768px) {
-				.service-detail-container {
-					padding: 0 1rem;
-				}
-				
-				.service-hero h1 {
-					font-size: 1.8rem;
-				}
-				
-				.service-icon-wrapper {
-					width: 150px;
-					height: 150px;
-				}
-				
-				.service-icon-wrapper img {
-					width: 90px;
-					height: 90px;
-				}
-				
-				.service-block {
-					padding: 1.5rem;
-					margin: 2rem 0;
-				}
-				
-				.service-block h2 {
-					font-size: 1.4rem;
-				}
-				
-				.service-features {
-					grid-template-columns: 1fr;
-					gap: 1.5rem;
-				}
-				
-				.service-cta {
-					padding: 2rem 1rem;
-				}
-				
-				.service-cta h2 {
-					font-size: 1.5rem;
-				}
-				
-				.back-to-services {
-					margin: 1rem;
-				}
+			.receive-guide {
+				display:inline-block;
+				position: relative;
+				top: 0;
+				cursor:pointer;
+				padding:0.8rem 1.8rem;
+				border-radius:0.5rem;
+				background:var(--gradient-primary);
+				color:white;
+				font-weight:600;
+				white-space:nowrap;
+				transition:top 0.2s ease;
 			}
 
-			@media (max-width: 480px) {
-				.service-hero h1 {
-					font-size: 1.5rem;
-				}
-				
-				.service-block h2 {
-					font-size: 1.2rem;
-				}
-				
-				.service-cta h2 {
-					font-size: 1.3rem;
-				}
-				
-				.cta-button {
-					padding: 0.8rem 2rem;
-					font-size: 1rem;
-				}
+			.receive-guide:hover {
+				top: -5px;
+			}
+
+			.receive-guide:active {
+				top: 5px;
 			}
 
 /*---------------------- RESPONSIVE ---------------------------*/
@@ -1028,7 +982,8 @@
 				nav::before { filter:  brightness(1.2) contrast(1.05) blur(1px); }
 			}
 			
-			@media(max-width: 900px){
+			@media(max-width: 1250px){
+				#about { padding: 1.5rem 1rem; }
 			
 				h1 { font-size: 26px; font-weight: 500;}
 				nav::before { left: 50%; }
@@ -1178,19 +1133,43 @@
 			}
 			
 			@media(max-width: 768px){
+
 				.card-container {
+					justify-content: flex-start !important;
 					flex-wrap: nowrap;
 					overflow-x: auto;
 					scroll-snap-type: x mandatory;
 					gap: 1rem;
 					padding: 1rem;
 				}
-				
+
 				.card {
+					max-width: 70%;
 					scroll-snap-align: center;
-					flex: 0 0 80%;
-					max-width: 80%;
+					flex: 0 0 80% !important;
+					max-width: 80% !important;
 				}
+
+			    #services > div > div:last-child {
+			        flex-direction: column;
+			        align-items: center;
+			        text-align: center;
+			    }
+
+			    #services form {
+			        display: flex;
+			        flex-direction: column;
+			        align-items: center;
+			        width: 100%;
+			        gap: 0.5rem;
+			    }
+
+			    #services form input,
+			    #services form .receive-guide {
+			        width: 100%;
+			        box-sizing: border-box;
+			        white-space: normal;
+			    }
 
 				svg {
 					max-width: 60vw;
@@ -1215,6 +1194,69 @@
 					letter-spacing: 0.05rem;
 					padding: 0 1rem;
 					text-align: center;
+				}
+
+				.service-detail-container {
+					padding: 0 1rem;
+				}
+				
+				.service-hero h1 {
+					font-size: 1.8rem;
+				}
+				
+				.service-icon-wrapper {
+					width: 150px;
+					height: 150px;
+				}
+				
+				.service-icon-wrapper img {
+					width: 90px;
+					height: 90px;
+				}
+				
+				.service-block {
+					padding: 1.5rem;
+					margin: 2rem 0;
+				}
+				
+				.service-block h2 {
+					font-size: 1.4rem;
+				}
+				
+				.service-features {
+					grid-template-columns: 1fr;
+					gap: 1.5rem;
+				}
+				
+				.service-cta {
+					padding: 2rem 1rem;
+				}
+				
+				.service-cta h2 {
+					font-size: 1.5rem;
+				}
+				
+				.back-to-services {
+					margin: 1rem;
+				}
+			}
+
+			@media (max-width: 480px) {
+				.service-hero h1 {
+					font-size: 1.5rem;
+				}
+				
+				.service-block h2 {
+					font-size: 1.2rem;
+				}
+				
+				.service-cta h2 {
+					font-size: 1.3rem;
+				}
+				
+				.cta-button {
+					padding: 0.8rem 2rem;
+					font-size: 1rem;
 				}
 			}
 
@@ -1287,6 +1329,7 @@
 			<div><a class="navLink active" href="#home" aria-current="page">Accueil</a></div>
 			<div><a class="navLink" href="#services">Services</a></div>
 			<div><a class="navLink" href="#portfolio">Mes réalisations</a></div>
+			<div><a class="navLink" href="#about">Qui suis-je</a></div>
 			<div><a class="navLink" href="#contact">Contact</a></div>
 		</nav>
 
@@ -1298,6 +1341,7 @@
 			<a href="#home">Accueil</a>
 			<a href="#services">Services</a>
 			<a href="#portfolio">Mes réalisations</a>
+			<a href="#about">Qui suis-je</a>
 			<a href="#contact">Contact</a>
 		</div>
 		
@@ -1401,70 +1445,106 @@
 					</g>
 				</svg>
 				<div>
-					<h1 class="typeWriter">Votre présence en ligne, entre de bonnes mains !</h1>
+					<h1 class="typeWriter">Votre site web a-t-il déjà été audité ?</h1>
 					<h3>
 						J'aide les indépendants qui veulent une présence en ligne sécurisée et professionnelle sans se prendre la tête.<br>
 						Indépendant moi-même, je comprends vos contraintes.
 					</h3>
-					<a class="navLink" href="#services">Découvrez mes services ici !</a>
+					<a class="navLink" href="#services">Voir ce que je peux faire pour vous</a>
 				</div>
 			</section>
 			
+
+			<section class="about" id="about" aria-hidden="true">
+
+				<h1 class="typeWriter" style="margin-bottom:2.5rem;">Qui suis-je ?</h1>
+
+				<div style="display:flex;flex-flow:column nowrap;gap:2rem;max-width:780px;width:100%;">
+
+					<!-- Bloc principal -->
+					<div>
+						<div style="padding:1.5rem 2rem;background:rgba(41,128,185,0.06);border-radius:8px;margin-bottom:2rem;">
+							<p style="line-height:1.9;font-size:1.05rem;">
+								Je suis militaire. Je ne peux pas vous dire grand-chose de plus là-dessus, et c'est très bien ainsi.<br><br>
+								Ce que je peux vous dire, c'est comment je suis arrivé à la cybersécurité : j'ai toujours voulu comprendre ce qui se passe quand on clique sur un bouton. Un jour, quelqu'un m'a montré une plateforme d'entraînement au hacking. J'ai accroché immédiatement. Quatre ans et demi d'apprentissage intensif plus tard, en parallèle de mes activités professionnelles, j'ai commencé à tester des sites réels, et à trouver des failles sur des organisations connues. Je les ai signalées. C'est ce qu'on appelle la divulgation responsable.<br><br>
+								En même temps, j'apprenais le développement web, pas pour faire des beaux sites, mais pour comprendre comment ils fonctionnent de l'intérieur. Parce qu'on ne sécurise bien que ce qu'on sait construire.
+							</p>
+						</div>
+
+						<p style="line-height:1.8;font-size:1rem;color:#444;margin-bottom:1.5rem;">
+							Aujourd'hui je travaille sous la marque <strong>Cryptex</strong>, en indépendant complémentaire, basé en Wallonie. Pas de sous-traitance, pas d'intermédiaire. Vous avez affaire directement à la personne qui fait le travail.<br><br>
+							Mon approche est simple : je vous dis ce que je trouve, je vous explique pourquoi c'est un problème, et je vous dis quoi faire pour y remédier. Sans jargon inutile. Si vous faites ce que je vous conseille, vous n'aurez normalement pas de souci.
+						</p>
+
+						<a class="navLink" href="#contact" style="display:inline-block;margin-top:0.5rem;padding:0.8rem 1.8rem;background:var(--gradient-primary);color:white;border-radius:8px;font-weight:600;transition:opacity 0.2s ease;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+							Prendre contact →
+						</a>
+					</div>
+
+			</section>
+
 			<section class="services" id="services" aria-hidden="true">
 				<h1 class="typeWriter">Mes Services</h1>
 				<div>
-					<div class="card-container">
-					<button class="card" 
-					        value="devWeb"
-					        title="En savoir plus sur le développement web"
-					        aria-label="En savoir plus sur le développement web"
-					        aria-haspopup="dialog">
-					    <h2>Développement web</h2>
-					    <img alt="Icône représentant le développement web avec un ordinateur et du code" 
-					         src="./assets/coding.png"
-					         role="presentation">
-					</button>
+					<div class="card-container" style="justify-content:center;">
 
-					<button class="card" 
-					        value="upgrade"
-					        title="En savoir plus sur la refonte et l'optimisation"
-					        aria-label="En savoir plus sur la refonte et l'optimisation"
-					        aria-haspopup="dialog">
-					    <h2>Refonte & optimisation</h2>
-					    <img alt="Icône représentant l'amélioration et le progrès" 
-					         src="./assets/progress.png"
-					         role="presentation">
-					</button>
-						
-					<button class="card" 
-					        value="pentest"
-					        title="En savoir plus sur la sécurisation web"
-					        aria-label="En savoir plus sur la sécurisation web"
-					        aria-haspopup="dialog">
-					    <h2>Sécurisation web</h2>
-					    <img alt="Icône représentant la cybersécurité avec un cadenas" 
-					         src="./assets/cybersecurity.png"
-					         role="presentation">
-					</button>
+						<button class="card" value="devWeb"
+						        title="Création et refonte de site web"
+						        aria-label="En savoir plus sur la création de site web"
+						        aria-haspopup="dialog"
+						        style="flex:1 1 calc(45% - 2rem);max-width:420px;">
+							<h2 style="font-size:1.3rem;">&#x1F310; Je construis votre site</h2>
+							<img alt="" src="./assets/coding.png" role="presentation">
+							<p style="font-size:0.85rem;line-height:1.6;text-align:center;">Site vitrine, refonte, optimisation SEO.<br>Conçu pour convertir, et sécurisé dès le départ.</p>
+							<span style="font-size:0.8rem;opacity:0.75;">Création · Refonte · Optimisation</span>
+						</button>
 
-					<button class="card" 
-					        value="osint"
-					        title="En savoir plus sur l'analyse de votre présence numérique"
-					        aria-label="En savoir plus sur l'analyse de votre présence numérique"
-					        aria-haspopup="dialog">
-					    <h2>Analyse de votre présence numérique</h2>
-					    <img alt="Icône représentant l'analyse de données" 
-					         src="./assets/osint.png"
-					         role="presentation">
-					</button>
+						<button class="card" value="pentest"
+						        title="Audit de sécurité web et OSINT"
+						        aria-label="En savoir plus sur l'audit de sécurité"
+						        aria-haspopup="dialog"
+						        style="flex:1 1 calc(45% - 2rem);max-width:420px;">
+							<h2 style="font-size:1.3rem;">&#x1F512; Je teste sa sécurité</h2>
+							<img alt="" src="./assets/cybersecurity.png" role="presentation">
+							<p style="font-size:0.85rem;line-height:1.6;text-align:center;">Audit de sécurité web + analyse de votre empreinte numérique.<br>Rapport CVSS, recommandations concrètes, démo OSINT disponible.</p>
+							<span style="font-size:0.8rem;opacity:0.75;">Pentest web · OSINT · Rapport CVSS</span>
+						</button>
+
+					</div>
+
+					<div style="display:flex;flex-flow:row wrap;gap:0.75rem;padding:0 2rem;justify-content:center;margin-top:-0.5rem;">
+						<button class="card" value="upgrade"
+						        style="flex:0 0 auto;padding:0.6rem 1.2rem;border-radius:2rem;font-size:0.8rem;min-width:unset;"
+						        title="Refonte et optimisation">
+							Refonte &amp; optimisation &#x2192;
+						</button>
+						<button class="card" value="osint"
+						        style="flex:0 0 auto;padding:0.6rem 1.2rem;border-radius:2rem;font-size:0.8rem;min-width:unset;"
+						        title="Analyse OSINT">
+							Analyse OSINT &#x2192;
+						</button>
 					</div>
 					<p>
-						Je propose différents services pour aider votre présence en ligne à vraiment prendre forme.<br><br>
-						Que ce soit pour créer un site, améliorer l’existant, sécuriser vos outils ou analyser ce qui circule sur vous, je prends le temps de faire les choses proprement.<br>
-						J’aime travailler de manière simple et transparente : comprendre vos besoins, construire quelque chose de solide, et vous accompagner jusqu’à ce que tout soit clair et fonctionnel.<br><br>
-						Chaque mission est importante pour moi, qu’il s’agisse d’un site vitrine, d’une optimisation technique, d’un audit OSINT ou d’un renforcement de sécurité.<br>
-						Mon objectif est toujours le même : vous offrir un résultat fiable, propre et adapté à votre réalité.<br>
+						Trois problèmes reviennent chez les PME belges : un site qui ne convertit pas, une sécurité inexistante, et une empreinte numérique incontrôlée.<br><br>
+						Je m'occupe des trois, séparément ou ensemble, selon où vous en êtes.<br>
+						Pas de jargon. Pas de contrat cadre. Un interlocuteur unique qui comprend votre réalité de terrain et qui vous dit clairement ce qu'il trouve, ce que ça risque, et ce qu'on fait.<br><br>
+						Cliquez sur un service pour voir concrètement ce que ça implique pour vous.
 					</p>
+
+					<!-- LEAD MAGNET PLACEHOLDER -->
+					<div style="margin:2rem;padding:2rem 2.5rem;border-radius:1rem;background:linear-gradient(135deg,rgba(30,60,115,0.08) 0%,rgba(0,212,255,0.12) 100%);border:2px dashed rgba(41,128,185,0.4);display:flex;flex-flow:row wrap;align-items:center;justify-content:flex-start;gap:1.5rem;">
+						<div>
+							<h3 style="margin-bottom:0.5rem;font-size:1.1rem;">&#x1F50D; Votre site est-il exposé sans que vous le sachiez ?</h3>
+							<p style="margin:0;line-height:1.6;opacity:0.85;">Téléchargez gratuitement <strong>« Les 5 failles web les plus courantes chez les PME belges »</strong>, un guide concret, sans jargon, pour savoir où vous en êtes.</p>
+						</div>
+						<form>
+							<input type="email" id="email" placeholder="&nbsp;example@test.com" style="min-height:30px;padding:5px 0;border-radius:8px;">
+							<button class="receive-guide" required>
+								Recevoir le guide gratuit &#x2192;
+							</button>
+						</form>
+					</div>
+
 				</div>
 			</section>
 			
@@ -1645,21 +1725,19 @@
 					</div>
 
 					<div class="service-block">
-						<h2>Protégez votre site et vos utilisateurs</h2>
+						<h2>Un attaquant met en moyenne 6 heures à exploiter une faille connue</h2>
 						<p>
-							Un site piraté, c'est un cauchemar. Perte de données, site inaccessible, image ternie, perte de confiance des clients. Sans parler des conséquences légales si des données personnelles sont compromises.<br>
-							La sécurité web n'est pas un luxe. C'est une nécessité, surtout quand votre site collecte des informations.<br>
-							Je propose des audits de sécurité complets pour identifier les vulnérabilités de votre site.<br>
-							Une fois les points faibles identifiés, je mets en place les corrections nécessaires : mise à jour des composants, renforcement des accès, etc.<br>
+							En Belgique, les PME sont des cibles de choix : elles traitent des données clients, elles ont rarement un responsable sécurité, et leurs sites sont souvent construits sans audit initial.<br><br>
+							Le RGPD est clair : si des données personnelles fuient depuis votre site, vous en êtes responsable. L'amende peut aller jusqu'à 4% de votre chiffre d'affaires annuel, et la perte de confiance client, elle, ne se chiffre pas.<br><br>
+							Je réalise des audits de sécurité web complets : je teste votre site comme le ferait un attaquant, je documente chaque vulnérabilité trouvée, et je vous remets un rapport clair avec les corrections à faire, par ordre de priorité.
 						</p>
 					</div>
 
 					<div class="service-block alternate">
-						<h2>Une sécurité sur mesure</h2>
+						<h2>Ce que l'audit révèle concrètement</h2>
 						<p>
-							Chaque site est différent. Un site vitrine n'a pas les mêmes besoins de sécurité qu'une boutique en ligne ou qu'un espace membre.<br>
-							C'est pour ça que j'adapte mes interventions en fonction de votre situation réelle.<br>
-							L'accompagnement ne s'arrête pas à la correction des failles. Je vous explique les bonnes pratiques à adopter au quotidien : comment choisir de bons mots de passe, comment repérer une tentative d'hameçonnage, comment maintenir votre site à jour en toute sécurité.<br>
+							Les failles les plus fréquentes que je trouve chez les PME belges : formulaires de contact exploitables par injection, interfaces d'administration accessibles sans protection, CMS non mis à jour depuis des mois, certificats SSL mal configurés, données sensibles exposées dans le code source.<br><br>
+							Chaque mission se termine par un rapport structuré avec un score de criticité CVSS pour chaque vulnérabilité, le même standard utilisé par les équipes de sécurité professionnelles. Vous savez exactement quoi corriger en premier et pourquoi.
 						</p>
 					</div>
 
@@ -1688,8 +1766,8 @@
 					</div>
 
 					<div class="service-cta">
-						<h2>Sécurisez votre présence en ligne</h2>
-						<p>Un site protégé, c'est la tranquillité d'esprit assurée.</p>
+						<h2>Vous voulez savoir ce qu'un attaquant verrait sur votre site ?</h2>
+						<p>Premier échange gratuit. Je vous dis en 30 minutes si votre site présente des risques évidents, sans engagement.</p>
 						<button class="cta-button" data-target="contact">Contactez-moi</button>
 					</div>
 				</div>
@@ -1710,18 +1788,17 @@
 					</div>
 
 					<div class="service-block">
-						<h2>Comprenez votre empreinte numérique</h2>
+						<h2>Votre entreprise laisse des traces, lesquelles sont exploitables ?</h2>
 						<p>
-							Cyberharcèlement, doxxing, revenge porn ou usurpation d’identité : lorsque des informations circulent sur vous sans votre contrôle, les conséquences peuvent être immédiates et durables, tant sur le plan personnel que professionnel.<br><br>
-							Une analyse <strong style="font-weight: 600;">OSINT</strong> permet d’identifier précisément quelles données vous concernant sont accessibles publiquement, où elles se trouvent et de quelle manière elles peuvent être exploitées. L’<strong style="font-weight: 600;">OSINT</strong> repose sur la collecte, la corrélation et l’analyse d’informations ouvertes issues de sources variées telles que les réseaux sociaux, les bases de données publiques, les moteurs de recherche ou encore les contenus archivés.<br><br>
-							Cette approche est utilisée par les enquêteurs, les journalistes d’investigation et les professionnels de la cybersécurité pour reconstituer des profils numériques fiables et exploitables. L’objectif n’est pas seulement de constater une exposition, mais de comprendre les risques réels qu’elle engendre et d’agir de manière ciblée pour reprendre la maîtrise de votre identité numérique.<br><br>
-							Je vous accompagne afin d’identifier les informations sensibles ou compromettantes qui circulent à votre sujet, de comprendre comment elles sont accessibles et corrélées entre elles, et d’évaluer leur impact réel sur votre vie privée, votre réputation ou votre sécurité.
+							Avant de vous attaquer, un attaquant commence par vous observer. Il collecte ce qui est public : noms des dirigeants, adresses email professionnelles, technologies utilisées sur votre site, fuites de données passées, mentions dans des bases publiques.<br><br>
+							Une analyse <strong style="font-weight:600;">OSINT</strong> consiste à faire exactement ce qu'un attaquant ferait, mais pour vous, avant lui. Je cartographie votre empreinte numérique d'entreprise : ce qui est visible, ce qui est corrélable, et ce qui représente un risque réel.<br><br>
+							Cette approche est utilisée par les équipes de sécurité, les journalistes d'investigation et les services de renseignement. Je l'applique à votre contexte : PME belge, sans département IT, qui veut comprendre ce qu'elle expose sans le savoir.
 						</p>
 
 					</div>
 
 					<div class="service-block alternate">
-						<h2>Reprenez le contrôle de votre image</h2>
+						<h2>Ce que vous recevez à l'issue de l'analyse</h2>
 						<p>
 							À l’issue de l’analyse, vous recevez un rapport structuré et détaillé qui cartographie votre empreinte numérique. Ce document vous permet de visualiser clairement les données visibles, leur origine et les scénarios d’exploitation possibles, tout en hiérarchisant les risques selon leur gravité et leur probabilité.<br><br>
 							L’accompagnement se poursuit ensuite par des recommandations concrètes, réalistes et applicables, adaptées à votre situation. Elles visent à réduire durablement votre surface d’exposition en ligne, à renforcer votre contrôle sur vos comptes et à limiter la visibilité des informations sensibles, dans un cadre strictement légal et éthique.<br><br>
@@ -1753,8 +1830,8 @@
 					</div>
 
 					<div class="service-cta">
-						<h2>Que révèle Internet sur vous ?</h2>
-						<p>Découvrez ce que le web sait de vous et comment le maîtriser.</p>
+						<h2>Vous voulez voir ce qu'un attaquant trouverait sur votre entreprise en 1 heure ?</h2>
+						<p>Je réalise une mini-démonstration OSINT sur votre empreinte numérique lors d'un premier échange, sans engagement, pour que vous voyiez concrètement de quoi il s'agit.</p>
 						<button class="cta-button" data-target="contact">Contactez-moi</button>
 					</div>
 				</div>
@@ -1879,11 +1956,12 @@
 			const maxIterations = 30;
 
 			const decodeInterval = setInterval(() => {
+				if (rings.length === 0) { clearInterval(decodeInterval); return; }
 				rings.forEach((ring, index) => {
 					if (iterations < maxIterations) {
 						ring.textContent = chars[Math.floor(Math.random() * chars.length)];
 					} else {
-						ring.textContent = targetWord[index];
+						ring.textContent = targetWord[index] || '';
 					}
 				});
 				
@@ -1895,7 +1973,8 @@
 						loader.classList.add('fade-out');
 						setTimeout(() => {
 							loader.style.display = 'none';
-							startTypewriter(document.querySelector('#home div>h1'));
+							const h1 = document.querySelector('#home div>h1');
+							if (h1) startTypewriter(h1);
 						}, 800);
 					}, 1500);
 				}
@@ -2085,25 +2164,75 @@
 					servicesLink.classList.add('active');
 					servicesLink.setAttribute('aria-current', 'page');
 					
-					// Scroll vers Services
-					const navHeight = document.querySelector('nav').offsetHeight;
+
 					const targetPosition = servicesSection.offsetTop - navHeight - 20;
-					window.scrollTo({
-						top: targetPosition,
-						behavior: "smooth"
-					});
-					
-					// Relancer le typewriter
-					servicesSection.querySelectorAll(".typeWriter").forEach(el => startTypewriter(el));
+					window.scrollTo({ top: targetPosition, behavior: "smooth" });
 				});
 			});
 
-			// Boutons CTA "Contactez-moi"
+			// Boutons CTA vers contact
 			ctaButtons.forEach(btn => {
 				btn.addEventListener('click', () => {
-					document.querySelector('a[href="#contact"]').click();
+					serviceDetailSections.forEach(s => {
+						s.classList.remove('active');
+						s.setAttribute('aria-hidden', 'true');
+					});
+					sections.forEach(s => {
+						s.classList.remove('active');
+						s.setAttribute('aria-hidden', 'true');
+					});
+					navLink.forEach(l => {
+						l.classList.remove('active');
+						l.removeAttribute('aria-current');
+					});
+					const contactSection = document.getElementById('contact');
+					contactSection.classList.add('active');
+					contactSection.setAttribute('aria-hidden', 'false');
+					const contactLink = document.querySelector('a[href="#contact"]');
+					if (contactLink) {
+						contactLink.classList.add('active');
+						contactLink.setAttribute('aria-current', 'page')
+					}
+					const navHeight = document.querySelector('nav').offsetHeight;
+					const targetPosition = contactSection.offsetTop - navHeight - 20;
+					window.scrollTo({ top: targetPosition, behavior: "smooth" });
 				});
 			});
+
+
+			//-------------- POST to GAS ----------------
+
+			document.querySelector('.receive-guide').addEventListener('click', async (event) => {
+			    const url = 'https://script.google.com/macros/s/AKfycbwO7OWMMN4eiqYddaO3ZVQH-uh3yY1hRmsZSrA9l7APS_LrDMxfEzaWs6QtlEIDs_V1WQ/exec';
+			    const email = document.getElementById('email').value; // ← .value manquait
+			    const t = 'fe8dc56c-8dae-464a-9ade-2dd0a56b1a5d';
+
+			    event.preventDefault();
+
+			    try {
+			        const res = await fetch(url, {
+			            method: 'POST',
+			            mode: 'no-cors',
+			            headers: { 'Content-Type': 'text/plain' },
+			            body: JSON.stringify({
+			                email: email,
+			                token: t
+			            }),
+			        });
+
+			        const btn = document.querySelector('.receive-guide');
+			        const p = document.createElement('p');
+			        p.textContent = 'Vous allez recevoir le guide, vérifiez vos emails !';
+			     	p.style.cssText = "display:inline;color:green;";
+			        btn.insertAdjacentElement('afterend', p);
+					setTimeout(() => {
+					    p.remove();
+					}, 5000);
+
+			    } catch (err) {
+			        console.error(err);
+			    }
+			});
 		</script>
-	</body>
+</body>
 </html>
